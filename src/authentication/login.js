@@ -3,7 +3,7 @@ import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import './css/style.css';
 
-import jwt_decode from 'jwt-decode';
+// import jwt_decode from 'jwt-decode';
 
 function Login({ onLogin }) {
   const [id, setId] = useState('');
@@ -40,11 +40,11 @@ function Login({ onLogin }) {
     const responseData = await response.json();
     
     if(response.ok){            
-      const token = jwt_decode(responseData.message);
-      onLogin(token);
+      // const token = jwt_decode(responseData.message);
+      onLogin(responseData.message);
       
       alert("로그인 성공");
-      navigate("/");
+      // navigate("/");
     }else{
       alert(responseData.message)
     }
